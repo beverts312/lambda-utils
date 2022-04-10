@@ -2,6 +2,7 @@
 
 For making lambda's easier
 
+`pip install bails-lambda-utils`
 
 ## Usage
 
