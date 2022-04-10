@@ -21,11 +21,6 @@ class Response:
             res["body"] = json.dumps({"message": self.message})
         if self.extra_headers is not None:
             res["headers"] = self.extra_headers
-        if self.event is not None:
-            if "jwt" in self.event["requestContext"]["authorizer"]:
-                res["headers"]["authorization"] = self.event["requestContext"][
-                    "authorizer"
-                ]["jwt"]
         if not self.disable_cors:
             res["headers"]["Access-Control-Allow-Origin"] = "*"
             res["headers"]["Access-Control-Allow-Methods"] = "POST, GET, PUT, OPTIONS"

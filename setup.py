@@ -1,4 +1,3 @@
-from ensurepip import version
 from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
@@ -6,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="bails-lambda-utils",
-    version="0.1.0",
+    version="0.1.1",
     license="MIT",
     author="Bailey Everts",
     author_email="me@baileyeverts.net",
