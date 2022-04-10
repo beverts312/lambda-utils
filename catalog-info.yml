@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: lambda-utils
+  description: For building lambdas faster
+  annotations:
+    github.com/project-slug: 'beverts312/lambda-utils'
+spec:
+  type: library
+  lifecycle: concept
+  owner: starlord
