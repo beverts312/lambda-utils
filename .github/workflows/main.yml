@@ -1,0 +1,29 @@
+name: Main Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+      types: 
+        - opened
+        - synchronize
+        - reopened
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip3 install -r dev-requirements.txt
+      - name: Run Lint
+        run: inv l
+      - name: Run Unit Tests
+        run: inv t
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_KEY }}

@@ -26,6 +26,3 @@ def lambda_handler(func):
             return InternalErrorResponse(ref).to_dict()
 
     return wrapper
-
-
-

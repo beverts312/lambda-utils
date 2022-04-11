@@ -4,6 +4,10 @@ For making lambda's easier
 
 `pip install bails-lambda-utils`
 
+![](https://img.shields.io/pypi/v/bails_lambda_utils)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=beverts312_lambda-utils&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=beverts312_lambda-utils)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=beverts312_lambda-utils&metric=coverage)](https://sonarcloud.io/summary/new_code?id=beverts312_lambda-utils)
+
 ## Usage
 
 ### Decorators

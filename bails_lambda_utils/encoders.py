@@ -8,7 +8,9 @@ class ModelEncoder(json.JSONEncoder):
         if hasattr(obj, "attribute_values"):
             return ModelEncoder.transform_object(
                 obj.attribute_values,
-                obj.get_legacy_fields() if hasattr(obj, "get_legacy_fields") else {},
+                obj.get_legacy_fields()
+                if hasattr(obj, "get_legacy_fields")
+                else {},
             )
         elif isinstance(obj, datetime.datetime):
             return obj.isoformat()

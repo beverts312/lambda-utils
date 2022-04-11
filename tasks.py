@@ -18,11 +18,27 @@ def check_format(c):
 
 @task(aliases=["l", "lp"])
 def lint(c):
-    return c.run("pycodestyle .")
+    return c.run("pycodestyle . --max-line-length=100")
+
+
+@task(aliases=["t"])
+def test_and_cover(c):
+    c.run("coverage run -m pytest --junitxml=junit.xml")
+    return c.run("coverage xml")
+
+
+@task(aliases=["c"])
+def clean(c):
+    return c.run("rm -rf dist bails_lambda_utils.egg-info build")
+
+
+@task()
+def build(c):
+    return c.run("python setup.py bdist_wheel")
 
 
 @task(aliases=["bp"])
 def build_and_publish(c):
-    c.run("rm -rf dist")
-    c.run("python setup.py bdist_wheel")
+    clean()
+    build()
     return c.run("python -m twine upload dist/*.whl --verbose")

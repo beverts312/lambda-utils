@@ -23,7 +23,9 @@ class Response:
             res["headers"] = self.extra_headers
         if not self.disable_cors:
             res["headers"]["Access-Control-Allow-Origin"] = "*"
-            res["headers"]["Access-Control-Allow-Methods"] = "POST, GET, PUT, OPTIONS"
+            res["headers"][
+                "Access-Control-Allow-Methods"
+            ] = "POST, GET, PUT, OPTIONS"
             res["headers"]["Access-Control-Allow-Headers"] = "*"
             res["headers"]["Access-Control-Expose-Headers"] = "*"
             res["headers"]["Access-Control-Allow-Credentials"] = True
@@ -56,8 +58,7 @@ class RequiredErrorResponse(ErrorResponse):
 class InternalErrorResponse(Response):
     def __init__(self, reference_id):
         self.status_code = 500
-        self.message = """
-            An internal error occurred, if it persists please contact support and provide the following id: {0}
-        """.format(
-            reference_id
+        self.message = (
+            "An internal error occurred, if it persists please contact support"
+            f" and provide the following id: {reference_id}"
         )
