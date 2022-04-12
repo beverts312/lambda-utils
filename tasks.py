@@ -32,7 +32,7 @@ def clean(c):
     return c.run("rm -rf dist bails_lambda_utils.egg-info build")
 
 
-@task()
+@task(aliases=["b"])
 def build(c):
     return c.run("python setup.py bdist_wheel")
 

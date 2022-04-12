@@ -1,11 +1,14 @@
 from setuptools import setup, find_packages
 
+
+__version__ = "0.1.1"
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name="bails-lambda-utils",
-    version="0.1.1",
+    version=__version__,
     license="MIT",
     author="Bailey Everts",
     author_email="me@baileyeverts.net",
