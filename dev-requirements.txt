@@ -1,7 +1,7 @@
 -r requirements.txt
 pycodestyle==2.8.0
 black==21.12b0
-invoke==1.6.0
+invoke==1.7.0
 plantuml==0.3.0
 setuptools==58.1.0
 twine==4.0.0
