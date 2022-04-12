@@ -37,17 +37,3 @@ def test_model_encoder_handles_dates():
 def test_model_encoder_handles_set():
     json_model = json.dumps({3}, cls=ModelEncoder)
     assert json_model == "[3]"
-
-
-def test_model_encoder_converts_model_keys():
-    model = FakeModel(
-        attribute_values={"id": 123, "your_mom": "is a nice lady"}
-    )
-    json_model = json.dumps(model, cls=ModelEncoder)
-    assert json_model == '{"id": 123, "yourMom": "is a nice lady"}'
-
-
-def test_model_encoder_maps_legacy_fields():
-    model = FakeModel2(attribute_values={"id": 123})
-    json_model = json.dumps(model, cls=ModelEncoder)
-    assert json_model == '{"id": 123, "old": "really old"}'
