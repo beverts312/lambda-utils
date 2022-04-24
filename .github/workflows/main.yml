@@ -95,6 +95,6 @@ jobs:
         run: |
           git config --global user.email "bots@baileyeverts.com"
           git config --global user.name "Semantic Release Bot"
-          semantic-release publish
+          semantic-release publish -v DEBUG
         env:
           REPOSITORY_PASSWORD: ${{ secrets.REPOSITORY_PASSWORD }}
