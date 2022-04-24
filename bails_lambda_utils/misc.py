@@ -6,3 +6,7 @@ def safe_get_param(event, param_key):
         and param_key in event["queryStringParameters"]
         else None
     )
+
+
+def is_http_event(event):
+    return "httpMethod" in event
