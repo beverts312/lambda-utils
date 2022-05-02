@@ -5,10 +5,12 @@ from .responses import (
     NotFoundResponse,
     InternalErrorResponse,
 )
+from functools import wraps
 from pynamodb.exceptions import DoesNotExist
 
 
 def lambda_handler(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         try:
             return func(*args, **kwargs)
